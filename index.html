@@ -5,22 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roshi Flowers</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- FAVICON BACK -->
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Ccircle cx="32" cy="32" r="20" fill="%23ff5fa2"/%3E%3Ctext x="32" y="40" font-size="22" text-anchor="middle"%3E🌸%3C/text%3E%3C/svg%3E'>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --rose: #ff5fa2;
   --blush: #ff8fbe;
-  --soft: #fff0f6;
-  --ink: #2f2731;
+  --bg: #fff0f6;
 }
 
 body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   background: linear-gradient(135deg, #fff0f6, #ffe4ef);
-  color: var(--ink);
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -47,7 +48,7 @@ nav a {
   color: var(--rose);
 }
 
-/* HERO */
+/* HERO FIXED (FILLS TOP NICELY) */
 .hero {
   height: 100vh;
   display: flex;
@@ -56,8 +57,17 @@ nav a {
   align-items: center;
   color: white;
   text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-  url("https://images.everypixel.com/image-9557388022810161493") center/cover;
+  padding: 20px;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+  url("https://images.everypixel.com/image-9557388022810161493") center/cover no-repeat;
+}
+
+.hero h2 {
+  max-width: 600px;
+}
+
+.hero p {
+  max-width: 500px;
 }
 
 /* BUTTON */
@@ -68,8 +78,8 @@ nav a {
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  display: inline-block;
   margin: 8px;
+  display: inline-block;
   transition: 0.3s;
 }
 
@@ -85,8 +95,9 @@ section {
 }
 
 section p {
-  max-width: 650px;
+  max-width: 700px;
   margin: auto;
+  line-height: 1.6;
 }
 
 /* CARDS */
@@ -124,8 +135,14 @@ section p {
 }
 
 /* CONTACT BUTTON FIX */
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #contact .button {
-  margin: 10px;
+  margin: 8px;
 }
 
 /* POPUP */
@@ -147,31 +164,25 @@ section p {
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  max-width: 300px;
 }
 
-.popup-box h3 {
-  margin-bottom: 10px;
+/* FALLING EMOJI */
+.emoji {
+  position: fixed;
+  top: -50px;
+  animation: fall linear forwards;
+  pointer-events: none;
 }
 
-.popup-box .button {
-  display: block;
-  margin: 10px auto;
-}
-
-/* FOOTER */
-footer {
-  background: var(--rose);
-  color: white;
-  padding: 20px;
-  text-align: center;
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  nav {
-    flex-wrap: wrap;
-  }
+  nav { flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -195,12 +206,16 @@ footer {
 <a href="#contact" class="button">Order Now</a>
 </section>
 
+<!-- YOUR ORIGINAL ABOUT (RESTORED) -->
 <section id="about">
-<h2>About Us</h2>
-<p>
-We create beautiful flower arrangements for every occasion.
-We also offer custom orders tailored to your special moments.
-</p>
+  <h2>About Us</h2>
+  <p>
+    We create beautiful flower arrangements for every occasion. Our services include fresh and artificial flowers, bouquets, bunches, and unique floral designs.
+    <br><br>
+    We also offer custom orders tailored to your special moments.
+    <br><br>
+    Quality • Freshness • Love
+  </p>
 </section>
 
 <section id="services">
@@ -260,6 +275,24 @@ function openPopup(){
 function closePopup(){
   document.getElementById("popup").style.display = "none";
 }
+
+/* FLOWER EMOJI RAIN 🌸 */
+function spawnEmoji(){
+  const emojis = ["🌸","🌷","🌹","💐","🌺","🌻"];
+  const el = document.createElement("div");
+  el.className = "emoji";
+  el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+
+  el.style.left = Math.random() * window.innerWidth + "px";
+  el.style.fontSize = (Math.random()*20 + 20) + "px";
+  el.style.animationDuration = (Math.random()*3 + 4) + "s";
+
+  document.body.appendChild(el);
+
+  setTimeout(() => el.remove(), 7000);
+}
+
+setInterval(spawnEmoji, 500);
 </script>
 
 </body>
