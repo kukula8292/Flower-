@@ -47,18 +47,58 @@ nav a {
   font-weight:bold;
 }
 
-/* HERO */
+/* HERO WITH CHESSBOARD IMAGES */
 .hero {
+  position: relative;
   height:100vh;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
   color:white;
+  overflow:hidden;
+  background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35));
   padding:20px;
-  background:linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-  url("https://images.everypixel.com/image-9557388022810161493") center/cover;
+}
+
+.hero-images {
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:90%;
+  max-width:1200px;
+  height:80%;
+  transform:translate(-50%,-50%);
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+  grid-auto-rows: 120px;
+  gap: 15px;
+  z-index:0;
+  opacity:0.25; /* subtle background */
+}
+
+.hero-images img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+.hero-text {
+  position: relative;
+  z-index:1;
+  max-width:650px;
+  padding:20px;
+}
+
+.hero-text h2 {
+  font-size:2.8rem;
+  margin-bottom:20px;
+}
+
+.hero-text p {
+  font-size:1.3rem;
+  margin-bottom:30px;
 }
 
 /* BUTTON */
@@ -221,9 +261,27 @@ footer {
 </nav>
 
 <section class="hero">
-<h2>Beautiful Flowers for Every Special Moment</h2>
-<p>Fresh • Elegant • Made with Love</p>
-<a href="#contact" class="button">Order Now</a>
+  <!-- CHESSBOARD BACKGROUND IMAGES -->
+  <div class="hero-images">
+    <img src="flower1.jpg">
+    <img src="flower2.jpg">
+    <img src="flower3.jpeg">
+    <img src="flower4.jpeg">
+    <img src="flower5.jpeg">
+    <img src="flower6.jpeg">
+    <img src="flower7.jpeg">
+    <img src="flower8.jpeg">
+    <img src="flower9.jpeg">
+    <img src="flower10.jpeg">
+    <img src="flower11.jpeg">
+    <img src="flower12.jpeg">
+  </div>
+
+  <div class="hero-text">
+    <h2>Beautiful Flowers for Every Special Moment</h2>
+    <p>Fresh • Elegant • Made with Love</p>
+    <a href="#contact" class="button">Order Now</a>
+  </div>
 </section>
 
 <section id="about">
