@@ -50,55 +50,62 @@ nav a {
 /* HERO WITH CHESSBOARD IMAGES */
 .hero {
   position: relative;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
-  background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35));
-  padding:20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+  background: url("https://images.everypixel.com/image-9557388022810161493") center/cover no-repeat;
 }
 
-.hero-images {
+/* Chessboard grid */
+.hero-grid {
   position: absolute;
-  top:50%;
-  left:50%;
-  width:90%;
-  max-width:1200px;
-  height:80%;
-  transform:translate(-50%,-50%);
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
-  grid-auto-rows: 120px;
-  gap: 15px;
-  z-index:0;
-  opacity:0.25; /* subtle background */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(6, 150px);
+  grid-template-rows: repeat(2, 150px);
+  gap: 10px;
+  z-index: 0;
 }
 
-.hero-images img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:15px;
+.square {
+  width: 150px;
+  height: 150px;
 }
 
+.square.empty {
+  background: transparent; /* empty squares */
+}
+
+.square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Hero text stays above grid */
 .hero-text {
   position: relative;
-  z-index:1;
-  max-width:650px;
-  padding:20px;
+  z-index: 1;
+  max-width: 650px;
+  padding: 20px;
+  color: white;
 }
 
 .hero-text h2 {
-  font-size:2.8rem;
-  margin-bottom:20px;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
 }
 
 .hero-text p {
-  font-size:1.3rem;
-  margin-bottom:30px;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
 }
 
 /* BUTTON */
@@ -260,21 +267,21 @@ footer {
 <a href="#contact">Order</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <!-- CHESSBOARD BACKGROUND IMAGES -->
-  <div class="hero-images">
-    <img src="flower1.jpg">
-    <img src="flower2.jpg">
-    <img src="flower3.jpeg">
-    <img src="flower4.jpeg">
-    <img src="flower5.jpeg">
-    <img src="flower6.jpeg">
-    <img src="flower7.jpeg">
-    <img src="flower8.jpeg">
-    <img src="flower9.jpeg">
-    <img src="flower10.jpeg">
-    <img src="flower11.jpeg">
-    <img src="flower12.jpeg">
+  <div class="hero-grid">
+    <div class="square"><img src="flower1.jpg"></div>
+    <div class="square empty"></div>
+    <div class="square"><img src="flower2.jpg"></div>
+    <div class="square empty"></div>
+    <div class="square"><img src="flower3.jpeg"></div>
+    <div class="square empty"></div>
+    <div class="square"><img src="flower4.jpeg"></div>
+    <div class="square empty"></div>
+    <div class="square"><img src="flower5.jpeg"></div>
+    <div class="square empty"></div>
+    <div class="square"><img src="flower6.jpeg"></div>
+    <div class="square empty"></div>
   </div>
 
   <div class="hero-text">
