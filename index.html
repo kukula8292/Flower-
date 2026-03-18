@@ -47,7 +47,7 @@ nav a {
   font-weight:bold;
 }
 
-/* HERO WITH HORIZONTAL FLOW */
+/* HERO WITH CHESSBOARD */
 .hero {
   position: relative;
   height: 100vh;
@@ -65,16 +65,11 @@ nav a {
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: 150px 150px 150px 150px 150px 150px; /* first 6 images vertical stack */
+  grid-template-columns: repeat(6, 150px); /* first 6 vertical stack */
   grid-auto-flow: column; /* remaining images flow horizontally */
   gap: 20px;
   z-index: 0;
   max-width: 100%;
-}
-
-/* Remove previous offset */
-.square.offset {
-  margin-top: 0;
 }
 
 .square {
@@ -88,6 +83,11 @@ nav a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Offset every second image for chessboard */
+.square.offset {
+  margin-top: 75px;
 }
 
 /* Text overlay */
@@ -276,18 +276,18 @@ footer {
 <section class="hero">
   <div class="hero-grid">
     <div class="square"><img src="flower1.jpg" alt="Flower 1"></div>
-    <div class="square"><img src="flower2.jpg" alt="Flower 2"></div>
+    <div class="square offset"><img src="flower2.jpg" alt="Flower 2"></div>
     <div class="square"><img src="flower3.jpeg" alt="Flower 3"></div>
-    <div class="square"><img src="flower4.jpeg" alt="Flower 4"></div>
+    <div class="square offset"><img src="flower4.jpeg" alt="Flower 4"></div>
     <div class="square"><img src="flower5.jpeg" alt="Flower 5"></div>
-    <div class="square"><img src="flower6.jpeg" alt="Flower 6"></div>
+    <div class="square offset"><img src="flower6.jpeg" alt="Flower 6"></div>
 
     <div class="square"><img src="flower7.jpg" alt="Flower 7"></div>
-    <div class="square"><img src="flower8.jpg" alt="Flower 8"></div>
+    <div class="square offset"><img src="flower8.jpg" alt="Flower 8"></div>
     <div class="square"><img src="flower9.jpeg" alt="Flower 9"></div>
-    <div class="square"><img src="flower10.jpeg" alt="Flower 10"></div>
+    <div class="square offset"><img src="flower10.jpeg" alt="Flower 10"></div>
     <div class="square"><img src="flower11.jpeg" alt="Flower 11"></div>
-    <div class="square"><img src="flower12.jpeg" alt="Flower 12"></div>
+    <div class="square offset"><img src="flower12.jpeg" alt="Flower 12"></div>
   </div>
 
   <div class="hero-text">
@@ -316,21 +316,21 @@ Quality • Freshness • Love
 <div class="services">
 
 <div class="card">
-<img src="flower9.jpeg">
+<img src="flower9.jpeg" alt="Royal Bunch">
 <h3>Royal Bunch</h3>
-<button class="button" onclick="openPopup()">Order</button>
+<button class="button" onclick="openPopup('Royal Bunch')">Order</button>
 </div>
 
 <div class="card">
-<img src="flower5.jpeg">
+<img src="flower5.jpeg" alt="Sunshine Bunch">
 <h3>Sunshine Bunch</h3>
-<button class="button" onclick="openPopup()">Order</button>
+<button class="button" onclick="openPopup('Sunshine Bunch')">Order</button>
 </div>
 
 <div class="card">
-<img src="flower14.jpeg">
+<img src="flower14.jpeg" alt="Purity Bunch">
 <h3>Purity Bunch</h3>
-<button class="button" onclick="openPopup()">Order</button>
+<button class="button" onclick="openPopup('Purity Bunch')">Order</button>
 </div>
 
 </div>
@@ -341,24 +341,24 @@ Quality • Freshness • Love
 <h2>Gallery 🌸</h2>
 
 <div class="gallery-scroll">
-<img src="flower1.jpg" onclick="openImage(this.src)">
-<img src="flower2.jpg" onclick="openImage(this.src)">
-<img src="flower3.jpeg" onclick="openImage(this.src)">
-<img src="flower4.jpeg" onclick="openImage(this.src)">
-<img src="flower5.jpeg" onclick="openImage(this.src)">
-<img src="flower6.jpeg" onclick="openImage(this.src)">
-<img src="flower7.jpeg" onclick="openImage(this.src)">
-<img src="flower8.jpeg" onclick="openImage(this.src)">
-<img src="flower9.jpeg" onclick="openImage(this.src)">
-<img src="flower10.jpeg" onclick="openImage(this.src)">
-<img src="flower11.jpeg" onclick="openImage(this.src)">
-<img src="flower12.jpeg" onclick="openImage(this.src)">
-<img src="flower13.jpeg" onclick="openImage(this.src)">
-<img src="flower14.jpeg" onclick="openImage(this.src)">
-<img src="flower15.jpg" onclick="openImage(this.src)">
-<img src="flower16.jpeg" onclick="openImage(this.src)">
-<img src="flower18.jpeg" onclick="openImage(this.src)">
-<img src="flower19.jpeg" onclick="openImage(this.src)">
+<img src="flower1.jpg" onclick="openImage(this.src)" alt="Flower 1">
+<img src="flower2.jpg" onclick="openImage(this.src)" alt="Flower 2">
+<img src="flower3.jpeg" onclick="openImage(this.src)" alt="Flower 3">
+<img src="flower4.jpeg" onclick="openImage(this.src)" alt="Flower 4">
+<img src="flower5.jpeg" onclick="openImage(this.src)" alt="Flower 5">
+<img src="flower6.jpeg" onclick="openImage(this.src)" alt="Flower 6">
+<img src="flower7.jpeg" onclick="openImage(this.src)" alt="Flower 7">
+<img src="flower8.jpeg" onclick="openImage(this.src)" alt="Flower 8">
+<img src="flower9.jpeg" onclick="openImage(this.src)" alt="Flower 9">
+<img src="flower10.jpeg" onclick="openImage(this.src)" alt="Flower 10">
+<img src="flower11.jpeg" onclick="openImage(this.src)" alt="Flower 11">
+<img src="flower12.jpeg" onclick="openImage(this.src)" alt="Flower 12">
+<img src="flower13.jpeg" onclick="openImage(this.src)" alt="Flower 13">
+<img src="flower14.jpeg" onclick="openImage(this.src)" alt="Flower 14">
+<img src="flower15.jpg" onclick="openImage(this.src)" alt="Flower 15">
+<img src="flower16.jpeg" onclick="openImage(this.src)" alt="Flower 16">
+<img src="flower18.jpeg" onclick="openImage(this.src)" alt="Flower 18">
+<img src="flower19.jpeg" onclick="openImage(this.src)" alt="Flower 19">
 </div>
 
 <a href="#contact" class="button">Order Now</a>
@@ -382,8 +382,8 @@ Quality • Freshness • Love
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
-    <h3>Order via WhatsApp 🌸</h3>
-    <a href="https://wa.me/94717865534" class="button">Open WhatsApp</a>
+    <h3 id="popupTitle">Order via WhatsApp 🌸</h3>
+    <a id="popupLink" href="https://wa.me/94717865534" class="button" target="_blank">Open WhatsApp</a>
     <button class="button" onclick="closePopup()">Close</button>
   </div>
 </div>
@@ -394,9 +394,14 @@ Quality • Freshness • Love
 </div>
 
 <script>
-function openPopup(){
+function openPopup(bouquetName){
+  const phone = "94717865534";
+  const message = encodeURIComponent(`Hello! I want to order the ${bouquetName} 🌸`);
+  document.getElementById("popupLink").href = `https://wa.me/${phone}?text=${message}`;
+  document.getElementById("popupTitle").textContent = `Order ${bouquetName} via WhatsApp 🌸`;
   document.getElementById("popup").style.display="flex";
 }
+
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
