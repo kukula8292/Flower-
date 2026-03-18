@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #fff6f8;
@@ -20,13 +21,9 @@
       --shadow: 0 12px 30px rgba(173, 52, 108, 0.18);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -36,51 +33,10 @@
         radial-gradient(circle at 12% 18%, #ffe8f1 0%, transparent 36%),
         radial-gradient(circle at 88% 72%, #ffd8eb 0%, transparent 34%),
         radial-gradient(circle at 55% 8%, #ffeef5 0%, transparent 26%),
-        repeating-radial-gradient(
-          circle at 50% 50%,
-          rgba(255, 158, 199, 0.13) 0 2px,
-          rgba(255, 158, 199, 0.03) 2px 14px
-        ),
+        repeating-radial-gradient(circle at 50% 50%, rgba(255, 158, 199, 0.13) 0 2px, rgba(255, 158, 199, 0.03) 2px 14px),
         var(--bg);
       background-attachment: fixed;
       overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(130deg, rgba(255, 188, 217, 0.08), rgba(255, 255, 255, 0)),
-        radial-gradient(circle at 75% 15%, rgba(255, 140, 192, 0.16), transparent 28%);
-      animation: ambientShift 18s ease-in-out infinite alternate;
-      z-index: -2;
-    }
-
-    .petal-layer {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 999;
-    }
-
-    .falling-flower {
-      --size: 12px;
-      --left: 50vw;
-      --drift: 28px;
-      --duration: 10s;
-      --delay: 0s;
-      position: absolute;
-      top: -12vh;
-      left: var(--left);
-      font-size: var(--size);
-      line-height: 1;
-      opacity: 0.95;
-      filter: drop-shadow(0 5px 10px rgba(173, 52, 108, 0.24));
-      animation: flowerFall var(--duration) linear var(--delay) infinite;
-      will-change: transform;
     }
 
     .bg-bloom {
@@ -95,36 +51,12 @@
       animation: drift 14s infinite ease-in-out alternate;
     }
 
-    .bloom-a {
-      top: 10%;
-      left: -60px;
-      background: #ff8fbe;
-    }
-
-    .bloom-b {
-      bottom: 8%;
-      right: -80px;
-      background: #ff6fae;
-      animation-delay: 2s;
-    }
+    .bloom-a { top: 10%; left: -60px; background: #ff8fbe; }
+    .bloom-b { bottom: 8%; right: -80px; background: #ff6fae; animation-delay: 2s; }
 
     @keyframes drift {
       from { transform: translateY(0) scale(1); }
       to { transform: translateY(-30px) scale(1.07); }
-    }
-
-    @keyframes ambientShift {
-      from { transform: translateY(0); opacity: 0.8; }
-      to { transform: translateY(-10px); opacity: 1; }
-    }
-
-    @keyframes flowerFall {
-      from {
-        transform: translate3d(0, -12vh, 0) rotate(0deg);
-      }
-      to {
-        transform: translate3d(var(--drift), 115vh, 0) rotate(260deg);
-      }
     }
 
     header {
@@ -132,396 +64,133 @@
       padding: 48px 20px;
       color: white;
       background: linear-gradient(135deg, #ff9ac1, #ff5fa2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      right: -140px;
-      top: -260px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    h1, h2 {
-      font-family: "Playfair Display", serif;
-      letter-spacing: 0.2px;
-      margin: 0 0 12px;
     }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
       display: flex;
       justify-content: center;
       gap: 22px;
-      padding: 14px 12px;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 143, 190, 0.18);
-      transition: box-shadow 0.2s ease;
-    }
-
-    nav.scrolled {
-      box-shadow: 0 10px 24px rgba(173, 52, 108, 0.14);
+      padding: 14px;
+      background: rgba(255,255,255,0.8);
     }
 
     nav a {
       text-decoration: none;
       color: var(--rose);
       font-weight: 700;
-      position: relative;
-      padding: 4px 2px;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 2px;
-      background: var(--rose);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.25s ease;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      transform: scaleX(1);
     }
 
     .hero {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(27, 17, 24, 0.28), rgba(27, 17, 24, 0.35)),
-        url("https://images.everypixel.com/image-9557388022810161493") center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url("https://images.everypixel.com/image-9557388022810161493") center/cover no-repeat;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: white;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -20% -10%;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(255, 210, 232, 0.26), transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(255, 161, 205, 0.24), transparent 30%);
-      animation: drift 11s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    .hero h2 {
-      font-size: clamp(2rem, 5vw, 3.3rem);
-      max-width: 720px;
-      animation: liftIn 0.8s ease both;
-    }
-
-    .hero p {
-      margin: 8px 0 20px;
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      animation: liftIn 1s ease both;
+      flex-direction: column;
     }
 
     .button {
-      background: linear-gradient(135deg, var(--blush), var(--rose));
+      background: var(--rose);
       color: white;
-      padding: 13px 30px;
-      border-radius: 999px;
+      padding: 12px 25px;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
-      margin: 10px;
-      box-shadow: 0 8px 24px rgba(213, 67, 134, 0.28);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      font-weight: bold;
     }
 
-    .button:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(213, 67, 134, 0.35);
-      filter: brightness(1.04);
-    }
-
-    .button:active {
-      transform: translateY(-1px) scale(0.99);
-    }
-
-    section {
-      padding: 90px 20px;
-      text-align: center;
-    }
-
-    .section-copy {
-      max-width: 820px;
-      margin: 0 auto;
-      color: var(--muted);
-      line-height: 1.7;
-    }
+    section { padding: 80px 20px; text-align: center; }
 
     .services {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 28px;
-      margin-top: 22px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .card {
-      background: var(--panel);
-      border-radius: 24px;
-      width: min(320px, 90vw);
+      background: white;
+      border-radius: 20px;
+      width: 300px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 18px 40px rgba(173, 52, 108, 0.25);
     }
 
     .card img {
       width: 100%;
       height: 250px;
       object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .card:hover img {
-      transform: scale(1.05);
-    }
-
-    .card h3 {
-      padding: 16px 16px 4px;
-      margin: 0;
-    }
-
-    .contact {
-      background:
-        linear-gradient(135deg, #ffe3ef, #fff3f8),
-        repeating-linear-gradient(
-          45deg,
-          rgba(255, 143, 190, 0.08) 0 10px,
-          rgba(255, 143, 190, 0.03) 10px 20px
-        );
     }
 
     footer {
-      background: linear-gradient(135deg, #ff6fae, #ff4d99);
+      background: var(--rose);
       color: white;
-      padding: 22px 14px;
-      text-align: center;
-      font-weight: 500;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes liftIn {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 680px) {
-      nav {
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      section {
-        padding: 70px 16px;
-      }
-      .hero {
-        min-height: 88vh;
-      }
+      padding: 20px;
     }
   </style>
 </head>
+
 <body>
-  <div class="bg-bloom bloom-a"></div>
-  <div class="bg-bloom bloom-b"></div>
-  <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
 
-  <header>
-    <h1>Roshi Flowers 🌸</h1>
-    <p>Where Every Bouquet Tells a Story</p>
-  </header>
+<header>
+  <h1>Roshi Flowers 🌸</h1>
+  <p>Where Every Bouquet Tells a Story</p>
+</header>
 
-  <nav id="mainNav">
-    <a href="#about">About</a>
-    <a href="#services">Bouquets</a>
-    <a href="#contact">Order</a>
-  </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#services">Bouquets</a>
+  <a href="#contact">Order</a>
+</nav>
 
-  <section class="hero">
-    <h2>Beautiful Flowers for Every Special Moment</h2>
-    <p>Fresh • Elegant • Made with Love</p>
-    <a href="#contact" class="button">Order Now</a>
-  </section>
+<section class="hero">
+  <h2>Beautiful Flowers for Every Special Moment</h2>
+  <p>Fresh • Elegant • Made with Love</p>
+  <a href="#contact" class="button">Order Now</a>
+</section>
 
-  <section id="about" class="reveal">
-    <h2>About Us</h2>
-    <p class="section-copy">
-      We create and deliver beautiful floral arrangements for birthdays, anniversaries, small weddings, and home celebrations.
-      From elegant bouquets to simple event decorations, we offer fresh, high-quality flowers for every special moment.
-    </p>
-    <p><strong>Beautiful flowers. Affordable prices. Made with love.</strong></p>
-  </section>
+<section id="about">
+  <h2>About Us</h2>
+  <p>We create beautiful flower arrangements for all occasions.</p>
+</section>
 
-  <section id="services" class="reveal">
-    <h2>Our Bouquets 💐</h2>
-    <div class="services">
-      <div class="card tilt-card">
-        <img src="https://happygift.in/wp-content/uploads/2024/06/F1-22.png" alt="Red Roses Bouquet">
-        <h3>Red Roses Bouquet</h3>
-        <a href="#contact" class="button">Order</a>
-      </div>
+<section id="services">
+  <h2>Our Bouquets 💐</h2>
+  <div class="services">
 
-      <div class="card tilt-card">
-        <img src="https://happygift.in/wp-content/uploads/2024/06/F1-6-1.png" alt="Luxury Bouquet">
-        <h3>Luxury Bouquet</h3>
-        <a href="#contact" class="button">Order</a>
-      </div>
-
-      <div class="card tilt-card">
-        <img src="https://happygift.in/wp-content/uploads/2024/06/Pink-Roses-Bouquet.png" alt="Pink Roses Bouquet">
-        <h3>Pink Roses Bouquet</h3>
-        <a href="#contact" class="button">Order</a>
-      </div>
+    <div class="card">
+      <img src="flower1.jpg" alt="Chrysanthemum Bouquet">
+      <h3>Pink & White Chrysanthemum Bouquet</h3>
+      <a href="#contact" class="button">Order</a>
     </div>
-  </section>
 
-  <section id="contact" class="contact reveal">
-    <h2>Place Your Order 🌷</h2>
-    <p>Message us directly to order your flowers.</p>
-    <a href="https://wa.me/94717865534" class="button" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gloryfloraforyou@gmail.com&su=Flower%20Order%20-%20Roshi%20Flowers" class="button" target="_blank" rel="noopener noreferrer">Gmail</a>
-    <a href="https://www.instagram.com/roshi_flowers?igsh=MTRza29xdDh2ajYxag%3D%3D&utm_source=qr" class="button" target="_blank" rel="noopener noreferrer">Instagram</a>
-  </section>
+    <div class="card">
+      <img src="flower2.jpg" alt="Yellow Lily Bouquet">
+      <h3>Yellow Lily Bouquet</h3>
+      <a href="#contact" class="button">Order</a>
+    </div>
 
-  <footer>
-    © 2026 Roshi Flowers | Made with Love 💖
-  </footer>
+    <div class="card">
+      <img src="flower3.jpg" alt="Gerbera Daisy Bouquet">
+      <h3>Mixed Gerbera & Daisy Bouquet</h3>
+      <a href="#contact" class="button">Order</a>
+    </div>
 
-  <script>
-    const nav = document.getElementById("mainNav");
-    const navLinks = [...nav.querySelectorAll("a")];
-    const sections = navLinks
-      .map((link) => document.querySelector(link.getAttribute("href")))
-      .filter(Boolean);
+  </div>
+</section>
 
-    window.addEventListener("scroll", () => {
-      nav.classList.toggle("scrolled", window.scrollY > 10);
-    });
+<section id="contact">
+  <h2>Order Now</h2>
+  <p>Contact us via WhatsApp or Instagram</p>
+</section>
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+<footer>
+  © 2026 Roshi Flowers
+</footer>
 
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = "#" + entry.target.id;
-          const link = navLinks.find((n) => n.getAttribute("href") === id);
-          if (!link) return;
-          if (entry.isIntersecting) {
-            navLinks.forEach((n) => n.classList.remove("active"));
-            link.classList.add("active");
-          }
-        });
-      },
-      { threshold: 0.55 }
-    );
-
-    sections.forEach((section) => sectionObserver.observe(section));
-
-    const petalLayer = document.getElementById("petalLayer");
-    const petals = window.matchMedia("(max-width: 680px)").matches ? 16 : 30;
-    const flowerSymbols = ["🌸", "🌺", "🌷", "🌼", "💮"];
-
-    function createPetal() {
-      const petal = document.createElement("span");
-      petal.className = "falling-flower";
-      petal.textContent = flowerSymbols[Math.floor(Math.random() * flowerSymbols.length)];
-
-      const size = (Math.random() * 15 + 16).toFixed(2) + "px";
-      const left = (Math.random() * 100).toFixed(2) + "vw";
-      const drift = (Math.random() * 120 - 60).toFixed(2) + "px";
-      const duration = (Math.random() * 6 + 7).toFixed(2) + "s";
-      const delay = (-Math.random() * 10).toFixed(2) + "s";
-      const opacity = (Math.random() * 0.3 + 0.7).toFixed(2);
-
-      petal.style.setProperty("--size", size);
-      petal.style.setProperty("--left", left);
-      petal.style.setProperty("--drift", drift);
-      petal.style.setProperty("--duration", duration);
-      petal.style.setProperty("--delay", delay);
-      petal.style.opacity = opacity;
-
-      petal.addEventListener("animationiteration", () => {
-        petal.style.setProperty("--left", (Math.random() * 100).toFixed(2) + "vw");
-        petal.style.setProperty("--drift", (Math.random() * 120 - 60).toFixed(2) + "px");
-        petal.textContent = flowerSymbols[Math.floor(Math.random() * flowerSymbols.length)];
-      });
-
-      petalLayer.appendChild(petal);
-    }
-
-    for (let i = 0; i < petals; i += 1) {
-      createPetal();
-    }
-
-    document.querySelectorAll(".tilt-card").forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateX = ((y / rect.height) - 0.5) * -8;
-        const rotateY = ((x / rect.width) - 0.5) * 8;
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-      });
-
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
-      });
-    });
-  </script>
 </body>
 </html>
