@@ -255,7 +255,6 @@ footer {
 
 /* --- RESPONSIVE ADJUSTMENTS FOR MOBILE --- */
 @media (max-width: 768px) {
-  /* Make hero grid scrollable horizontally instead of breaking layout */
   .hero-grid {
     display: flex;
     flex-wrap: nowrap;
@@ -263,40 +262,28 @@ footer {
     gap: 15px;
     margin-bottom: 20px;
   }
-
   .square {
-    flex: 0 0 140px; /* fix size for mobile */
+    flex: 0 0 140px;
     height: 140px;
-    margin-top: 0; /* remove offset for very small screens */
+    margin-top: 0;
   }
-
   .square.offset {
-    margin-top: 0; /* remove stagger on small screens */
+    margin-top: 0;
   }
-
-  /* Adjust hero text box size */
   .text-overlay {
     padding: 15px;
   }
-
-  /* Buttons smaller */
   .button {
     padding: 10px 18px;
     font-size: 0.9rem;
   }
-
-  /* Cards scale nicely */
   .card {
-    width: 90%; /* take most of the screen width */
+    width: 90%;
     margin: 0 auto;
   }
-
-  /* Gallery images smaller */
   .gallery-scroll img {
     height: 120px;
   }
-
-  /* Nav links smaller */
   nav a {
     font-size: 0.9rem;
   }
@@ -306,15 +293,12 @@ footer {
   header {
     padding: 25px 10px;
   }
-
   .hero {
     padding: 20px 5px;
   }
-
   .hero-text h2 {
     font-size: 1.2rem;
   }
-
   .hero-text p {
     font-size: 1rem;
   }
@@ -336,7 +320,6 @@ footer {
 <a href="#contact">Order</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
     <div class="square"><img src="flower1.jpg" alt="Flower 1"></div>
@@ -399,7 +382,6 @@ Quality • Freshness • Love
 </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
 <h2>Gallery 🌸</h2>
 
@@ -457,39 +439,54 @@ Quality • Freshness • Love
 </div>
 
 <script>
-function openPopup(bouquetName){
-  const phone = "94717865534";
-  const message = encodeURIComponent(`Hello! I want to order the ${bouquetName} 🌸`);
-  document.getElementById("popupLink").href = `https://wa.me/${phone}?text=${message}`;
-  document.getElementById("popupTitle").textContent = `Order ${bouquetName} via WhatsApp 🌸`;
-  document.getElementById("popup").style.display="flex";
-}
+document.addEventListener("DOMContentLoaded", function() {
+  function openPopup(bouquetName){
+    const phone = "94717865534";
+    const message = encodeURIComponent(`Hello! I want to order the ${bouquetName} 🌸`);
+    const popupLink = document.getElementById("popupLink");
+    const popupTitle = document.getElementById("popupTitle");
+    const popup = document.getElementById("popup");
+    if(popupLink && popupTitle && popup){
+      popupLink.href = `https://wa.me/${phone}?text=${message}`;
+      popupTitle.textContent = `Order ${bouquetName} via WhatsApp 🌸`;
+      popup.style.display="flex";
+    }
+  }
+  window.openPopup = openPopup;
 
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
+  window.closePopup = function(){
+    const popup = document.getElementById("popup");
+    if(popup) popup.style.display="none";
+  }
 
-function openImage(src){
-  document.getElementById("imageView").style.display="flex";
-  document.getElementById("fullImage").src=src;
-}
-function closeImage(){
-  document.getElementById("imageView").style.display="none";
-}
+  window.openImage = function(src){
+    const imageView = document.getElementById("imageView");
+    const fullImage = document.getElementById("fullImage");
+    if(imageView && fullImage){
+      imageView.style.display="flex";
+      fullImage.src = src;
+    }
+  }
 
-/* FLOWERS FALLING */
-function spawnEmoji(){
-  const emojis=["🌸","🌷","🌹","💐","🌺"];
-  const el=document.createElement("div");
-  el.className="emoji";
-  el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-  el.style.left=Math.random()*window.innerWidth+"px";
-  el.style.fontSize=(Math.random()*20+20)+"px";
-  el.style.animationDuration=(Math.random()*3+4)+"s";
-  document.body.appendChild(el);
-  setTimeout(()=>el.remove(),7000);
-}
-setInterval(spawnEmoji,500);
+  window.closeImage = function(){
+    const imageView = document.getElementById("imageView");
+    if(imageView) imageView.style.display="none";
+  }
+
+  // FALLING FLOWERS
+  function spawnEmoji(){
+    const emojis=["🌸","🌷","🌹","💐","🌺"];
+    const el=document.createElement("div");
+    el.className="emoji";
+    el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    el.style.left=Math.random()*window.innerWidth+"px";
+    el.style.fontSize=(Math.random()*20+20)+"px";
+    el.style.animationDuration=(Math.random()*3+4)+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),7000);
+  }
+  setInterval(spawnEmoji,500);
+});
 </script>
 
 </body>
