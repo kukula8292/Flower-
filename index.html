@@ -50,31 +50,28 @@ nav a {
 /* HERO WITH CHESSBOARD */
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column; /* stack images then text below */
   justify-content: center;
   align-items: center;
   overflow: hidden;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .hero-grid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: repeat(6, 150px); /* first 6 vertical stack */
-  grid-auto-flow: column; /* remaining images flow horizontally */
-  gap: 20px;
+  grid-template-columns: repeat(6, 180px);
+  grid-auto-flow: column;
+  gap: 25px;
   z-index: 0;
-  max-width: 100%;
+  margin-bottom: 40px; /* space below for text */
 }
 
 .square {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -87,7 +84,7 @@ nav a {
 
 /* Offset every second image for chessboard */
 .square.offset {
-  margin-top: 75px;
+  margin-top: 90px;
 }
 
 /* Text overlay */
@@ -281,7 +278,6 @@ footer {
     <div class="square offset"><img src="flower4.jpeg" alt="Flower 4"></div>
     <div class="square"><img src="flower5.jpeg" alt="Flower 5"></div>
     <div class="square offset"><img src="flower6.jpeg" alt="Flower 6"></div>
-
     <div class="square"><img src="flower7.jpeg" alt="Flower 7"></div>
     <div class="square offset"><img src="flower8.jpeg" alt="Flower 8"></div>
     <div class="square"><img src="flower9.jpeg" alt="Flower 9"></div>
@@ -383,7 +379,7 @@ Quality • Freshness • Love
 <div class="popup" id="popup">
   <div class="popup-box">
     <h3 id="popupTitle">Order via WhatsApp 🌸</h3>
-    <a id="popupLink" href="https://wa.me/94717865534" class="button" target="_blank">Open WhatsApp</a>
+    <a id="popupLink" href="#" class="button" target="_blank">Open WhatsApp</a>
     <button class="button" onclick="closePopup()">Close</button>
   </div>
 </div>
@@ -420,15 +416,12 @@ function spawnEmoji(){
   const el=document.createElement("div");
   el.className="emoji";
   el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-
   el.style.left=Math.random()*window.innerWidth+"px";
   el.style.fontSize=(Math.random()*20+20)+"px";
   el.style.animationDuration=(Math.random()*3+4)+"s";
-
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),7000);
 }
-
 setInterval(spawnEmoji,500);
 </script>
 
