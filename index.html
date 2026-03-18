@@ -362,21 +362,21 @@ Quality • Freshness • Love
 <div class="services">
 
 <div class="card">
-<img src="flower9.jpeg" alt="Royal Bunch">
-<h3>Royal Bunch</h3>
-<button class="button" onclick="openPopup('Royal Bunch')">Order</button>
+  <img src="flower9.jpeg" alt="Royal Bunch">
+  <h3>Royal Bunch</h3>
+  <button class="button" onclick="openPopup()">Order</button>
 </div>
 
 <div class="card">
-<img src="flower5.jpeg" alt="Sunshine Bunch">
-<h3>Sunshine Bunch</h3>
-<button class="button" onclick="openPopup('Sunshine Bunch')">Order</button>
+  <img src="flower5.jpeg" alt="Sunshine Bunch">
+  <h3>Sunshine Bunch</h3>
+  <button class="button" onclick="openPopup()">Order</button>
 </div>
 
 <div class="card">
-<img src="flower14.jpeg" alt="Purity Bunch">
-<h3>Purity Bunch</h3>
-<button class="button" onclick="openPopup('Purity Bunch')">Order</button>
+  <img src="flower14.jpeg" alt="Purity Bunch">
+  <h3>Purity Bunch</h3>
+  <button class="button" onclick="openPopup()">Order</button>
 </div>
 
 </div>
@@ -427,8 +427,8 @@ Quality • Freshness • Love
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
-    <h3 id="popupTitle">Order via WhatsApp 🌸</h3>
-    <a id="popupLink" href="#" class="button" target="_blank">Open WhatsApp</a>
+    <h3>Order via WhatsApp 🌸</h3>
+    <a href="https://wa.me/94717865534" class="button" target="_blank">Open WhatsApp</a>
     <button class="button" onclick="closePopup()">Close</button>
   </div>
 </div>
@@ -439,54 +439,43 @@ Quality • Freshness • Love
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  function openPopup(bouquetName){
-    const phone = "94717865534";
-    const message = encodeURIComponent(`Hello! I want to order the ${bouquetName} 🌸`);
-    const popupLink = document.getElementById("popupLink");
-    const popupTitle = document.getElementById("popupTitle");
-    const popup = document.getElementById("popup");
-    if(popupLink && popupTitle && popup){
-      popupLink.href = `https://wa.me/${phone}?text=${message}`;
-      popupTitle.textContent = `Order ${bouquetName} via WhatsApp 🌸`;
-      popup.style.display="flex";
-    }
-  }
-  window.openPopup = openPopup;
+window.openPopup = function(){
+  const popup = document.getElementById("popup");
+  if(popup) popup.style.display="flex";
+}
 
-  window.closePopup = function(){
-    const popup = document.getElementById("popup");
-    if(popup) popup.style.display="none";
-  }
+window.closePopup = function(){
+  const popup = document.getElementById("popup");
+  if(popup) popup.style.display="none";
+}
 
-  window.openImage = function(src){
-    const imageView = document.getElementById("imageView");
-    const fullImage = document.getElementById("fullImage");
-    if(imageView && fullImage){
-      imageView.style.display="flex";
-      fullImage.src = src;
-    }
+window.openImage = function(src){
+  const imageView = document.getElementById("imageView");
+  const fullImage = document.getElementById("fullImage");
+  if(imageView && fullImage){
+    imageView.style.display="flex";
+    fullImage.src = src;
   }
+}
 
-  window.closeImage = function(){
-    const imageView = document.getElementById("imageView");
-    if(imageView) imageView.style.display="none";
-  }
+window.closeImage = function(){
+  const imageView = document.getElementById("imageView");
+  if(imageView) imageView.style.display="none";
+}
 
-  // FALLING FLOWERS
-  function spawnEmoji(){
-    const emojis=["🌸","🌷","🌹","💐","🌺"];
-    const el=document.createElement("div");
-    el.className="emoji";
-    el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-    el.style.left=Math.random()*window.innerWidth+"px";
-    el.style.fontSize=(Math.random()*20+20)+"px";
-    el.style.animationDuration=(Math.random()*3+4)+"s";
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(),7000);
-  }
-  setInterval(spawnEmoji,500);
-});
+// FALLING FLOWERS
+function spawnEmoji(){
+  const emojis=["🌸","🌷","🌹","💐","🌺"];
+  const el=document.createElement("div");
+  el.className="emoji";
+  el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  el.style.left=Math.random()*window.innerWidth+"px";
+  el.style.fontSize=(Math.random()*20+20)+"px";
+  el.style.animationDuration=(Math.random()*3+4)+"s";
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),7000);
+}
+setInterval(spawnEmoji,500);
 </script>
 
 </body>
