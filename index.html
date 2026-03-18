@@ -75,8 +75,6 @@
       gap: 22px;
       padding: 14px;
       background: rgba(255,255,255,0.8);
-
-      /* ADDED */
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
@@ -123,14 +121,10 @@
       width: 300px;
       overflow: hidden;
       box-shadow: var(--shadow);
-
-      /* ADDED */
       transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
+    .card:hover { transform: translateY(-10px); }
 
     .card img {
       width: 100%;
@@ -138,15 +132,77 @@
       object-fit: cover;
     }
 
-    .button:hover {
-      background: var(--blush);
-    }
+    .button:hover { background: var(--blush); }
 
     footer {
       background: var(--rose);
       color: white;
       padding: 20px;
     }
+
+    /* ===== ADDED FIXES ===== */
+
+    section p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .services {
+      max-width: 1100px;
+      margin: auto;
+      gap: 30px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+    }
+
+    .price {
+      color: var(--rose);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero h2,
+    .hero p {
+      max-width: 600px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 24px; }
+      nav { flex-wrap: wrap; }
+    }
+
+    /* POPUP */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
   </style>
 </head>
 
@@ -185,21 +241,24 @@
   <div class="services">
 
     <div class="card">
-      <img src="flower9.jpeg" alt="Chrysanthemum Bouquet">
+      <img src="flower9.jpeg">
       <h3>Royal Bunch</h3>
-      <a href="#contact" class="button">Order</a>
+      <div class="price">Rs. 3500</div>
+      <button class="button" onclick="openPopup()">Order</button>
     </div>
 
     <div class="card">
-      <img src="flower5.jpeg" alt="Yellow Lily Bouquet">
+      <img src="flower5.jpeg">
       <h3>Sunshine Bunch</h3>
-      <a href="#contact" class="button">Order</a>
+      <div class="price">Rs. 3000</div>
+      <button class="button" onclick="openPopup()">Order</button>
     </div>
 
     <div class="card">
-      <img src="flower14.jpeg" alt="Gerbera Daisy Bouquet">
+      <img src="flower14.jpeg">
       <h3>Purity Bunch</h3>
-      <a href="#contact" class="button">Order</a>
+      <div class="price">Rs. 2800</div>
+      <button class="button" onclick="openPopup()">Order</button>
     </div>
 
   </div>
@@ -209,9 +268,7 @@
   <h2>Order Now 🌷</h2>
   <p>Contact us directly to place your order</p>
 
-  <!-- UPDATED WHATSAPP LINK -->
   <a href="https://wa.me/94717865534?text=Hi%20I%20want%20to%20order%20a%20flower%20bouquet%20" class="button" target="_blank">WhatsApp</a>
-
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gloryfloraforyou@gmail.com&su=Flower%20Order%20-%20Roshi%20Flowers" class="button" target="_blank">Gmail</a>
   <a href="https://www.instagram.com/roshi_flowers" class="button" target="_blank">Instagram</a>
 
@@ -220,6 +277,26 @@
 <footer>
   © 2026 Roshi Flowers
 </footer>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h3>Order via WhatsApp 🌸</h3>
+    <p>Click below to continue your order</p>
+    <a href="https://wa.me/94717865534" class="button">Go to WhatsApp</a>
+    <br><br>
+    <button onclick="closePopup()" class="button">Close</button>
+  </div>
+</div>
+
+<script>
+function openPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
 
 </body>
 </html>
