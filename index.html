@@ -52,7 +52,7 @@ nav a {
   position: relative;
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* stack images then text below */
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -66,7 +66,7 @@ nav a {
   grid-auto-flow: column;
   gap: 25px;
   z-index: 0;
-  margin-bottom: 40px; /* space below for text */
+  margin-bottom: 40px; 
 }
 
 .square {
@@ -87,10 +87,15 @@ nav a {
   margin-top: 90px;
 }
 
-/* Text overlay */
+/* TEXT CENTERING */
 .hero-text {
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .text-overlay {
@@ -98,6 +103,9 @@ nav a {
   padding: 30px;
   border-radius: 20px;
   display: inline-block;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .text-overlay h2,
@@ -106,7 +114,8 @@ nav a {
   margin: 0 0 15px 0;
 }
 
-.text-overlay a.button {
+.text-overlay a.button,
+.text-overlay button.button {
   margin-top: 15px;
 }
 
@@ -121,6 +130,7 @@ nav a {
   margin:8px;
   display:inline-block;
   transition:0.3s;
+  cursor:pointer;
 }
 
 .button:hover {
@@ -360,7 +370,6 @@ Quality • Freshness • Love
 <h2>Our Bouquets 💐</h2>
 
 <div class="services">
-
   <div class="card">
     <img src="flower9.jpeg" alt="Royal Bunch">
     <h3>Royal Bunch</h3>
@@ -378,7 +387,6 @@ Quality • Freshness • Love
     <h3>Purity Bunch</h3>
     <button class="button" type="button" onclick="openPopup()">Order</button>
   </div>
-
 </div>
 </section>
 
