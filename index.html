@@ -47,65 +47,69 @@ nav a {
   font-weight:bold;
 }
 
-/* HERO WITH CHESSBOARD IMAGES */
+/* HERO WITH STAGGERED CHESSBOARD */
 .hero {
   position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
   padding: 20px;
-  background: url("https://images.everypixel.com/image-9557388022810161493") center/cover no-repeat;
 }
 
-/* Chessboard grid */
 .hero-grid {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: grid;
-  grid-template-columns: repeat(6, 150px);
-  grid-template-rows: repeat(2, 150px);
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 900px;
   z-index: 0;
 }
 
 .square {
   width: 150px;
   height: 150px;
-}
-
-.square.empty {
-  background: transparent; /* empty squares */
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .square img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 15px;
 }
 
-/* Hero text stays above grid */
+/* Offset every second image */
+.square.offset {
+  margin-top: 75px; /* half of image height for stagger */
+}
+
+/* Text overlay */
 .hero-text {
   position: relative;
   z-index: 1;
-  max-width: 650px;
-  padding: 20px;
+}
+
+.text-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.text-overlay h2,
+.text-overlay p {
   color: white;
+  margin: 0 0 15px 0;
 }
 
-.hero-text h2 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-}
-
-.hero-text p {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+.text-overlay a.button {
+  margin-top: 15px;
 }
 
 /* BUTTON */
@@ -271,23 +275,19 @@ footer {
 <section class="hero">
   <div class="hero-grid">
     <div class="square"><img src="flower1.jpg"></div>
-    <div class="square empty"></div>
-    <div class="square"><img src="flower2.jpg"></div>
-    <div class="square empty"></div>
+    <div class="square offset"><img src="flower2.jpg"></div>
     <div class="square"><img src="flower3.jpeg"></div>
-    <div class="square empty"></div>
-    <div class="square"><img src="flower4.jpeg"></div>
-    <div class="square empty"></div>
+    <div class="square offset"><img src="flower4.jpeg"></div>
     <div class="square"><img src="flower5.jpeg"></div>
-    <div class="square empty"></div>
-    <div class="square"><img src="flower6.jpeg"></div>
-    <div class="square empty"></div>
+    <div class="square offset"><img src="flower6.jpeg"></div>
   </div>
 
   <div class="hero-text">
-    <h2>Beautiful Flowers for Every Special Moment</h2>
-    <p>Fresh • Elegant • Made with Love</p>
-    <a href="#contact" class="button">Order Now</a>
+    <div class="text-overlay">
+      <h2>Beautiful Flowers for Every Special Moment</h2>
+      <p>Fresh • Elegant • Made with Love</p>
+      <a href="#contact" class="button">Order Now</a>
+    </div>
   </div>
 </section>
 
