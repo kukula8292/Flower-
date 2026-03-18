@@ -252,6 +252,73 @@ footer {
   padding:20px;
   text-align:center;
 }
+
+/* --- RESPONSIVE ADJUSTMENTS FOR MOBILE --- */
+@media (max-width: 768px) {
+  /* Make hero grid scrollable horizontally instead of breaking layout */
+  .hero-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .square {
+    flex: 0 0 140px; /* fix size for mobile */
+    height: 140px;
+    margin-top: 0; /* remove offset for very small screens */
+  }
+
+  .square.offset {
+    margin-top: 0; /* remove stagger on small screens */
+  }
+
+  /* Adjust hero text box size */
+  .text-overlay {
+    padding: 15px;
+  }
+
+  /* Buttons smaller */
+  .button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* Cards scale nicely */
+  .card {
+    width: 90%; /* take most of the screen width */
+    margin: 0 auto;
+  }
+
+  /* Gallery images smaller */
+  .gallery-scroll img {
+    height: 120px;
+  }
+
+  /* Nav links smaller */
+  nav a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 25px 10px;
+  }
+
+  .hero {
+    padding: 20px 5px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
 </style>
 </head>
 
