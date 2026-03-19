@@ -418,9 +418,10 @@ Quality • Freshness • Love
 </div>
 </section>
   
-© 2026 Roshi Flowers
+<footer>
+  © 2026 Roshi Flowers
 </footer>
-
+  
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
@@ -449,28 +450,22 @@ Quality • Freshness • Love
 
 <script>
 
-// POPUP FUNCTION (UPGRADED)
-function openPopup(product = "General Order"){
+window.openPopup = function(product = "General Order"){
   const popup = document.getElementById("popup");
-  const text = document.getElementById("selectedItem");
   const link = document.getElementById("whatsappLink");
-
-  const name = document.getElementById("name").value;
-  const date = document.getElementById("date").value;
-  const note = document.getElementById("note").value;
 
   const message =
 `🌸 Order Details:
 Product: ${product}
-Name: ${name || "Not added"}
-Date: ${date || "Not selected"}
-Note: ${note || "None"}`;
+Hi! I want to order flowers.`;
 
-  text.innerText = "Selected: " + product;
+  if(link){
+    link.href = "https://wa.me/94717865534?text=" + encodeURIComponent(message);
+  }
 
-  link.href = "https://wa.me/94717865534?text=" + encodeURIComponent(message);
-
-  popup.style.display = "flex";
+  if(popup){
+    popup.style.display = "flex";
+  }
 }
 
 function closePopup(){
@@ -499,7 +494,7 @@ function spawnEmoji(){
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),7000);
 }
-setInterval(spawnEmoji,500);
+setInterval(spawnEmoji,1200);
 
 </script>
 
