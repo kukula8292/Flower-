@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roshi Flowers</title>
 
+<!-- FAVICON -->
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Ccircle cx="32" cy="32" r="20" fill="%23ff5fa2"/%3E%3Ctext x="32" y="40" font-size="22" text-anchor="middle"%3E🌸%3C/text%3E%3C/svg%3E'>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
@@ -34,11 +35,6 @@ header {
   color:white;
 }
 
-header h1 {
-  font-size: 2.8rem;
-  letter-spacing: 1px;
-}
-
 /* NAV */
 nav {
   display:flex;
@@ -49,7 +45,7 @@ nav {
   backdrop-filter:blur(10px);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 }
 
 nav a {
@@ -97,20 +93,31 @@ nav a {
   margin-top: 90px;
 }
 
+/* TEXT CENTERING */
 .hero-text {
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .text-overlay {
   background: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 20px;
+  display: inline-block;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .text-overlay h2,
 .text-overlay p {
   color: white;
+  margin: 0 0 15px 0;
 }
 
 /* BUTTON */
@@ -138,12 +145,19 @@ section {
   text-align:center;
 }
 
+section p {
+  max-width:700px;
+  margin:auto;
+}
+
 /* CARDS */
 .services {
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:30px;
+  max-width:1100px;
+  margin:auto;
 }
 
 .card {
@@ -152,7 +166,7 @@ section {
   border-radius:20px;
   overflow:hidden;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  animation: fadeUp 0.8s ease forwards;
+  transition:0.3s;
 }
 
 .card:hover {
@@ -163,11 +177,6 @@ section {
   width:100%;
   height:230px;
   object-fit:cover;
-}
-
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
 }
 
 /* GALLERY */
@@ -182,12 +191,70 @@ section {
   height:250px;
   border-radius:20px;
   cursor:pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:0.3s;
 }
 
 .gallery-scroll img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform:scale(1.08);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* IMAGE VIEW */
+.image-view {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.8);
+  z-index:10000;
+}
+
+.image-view img {
+  max-width:90%;
+  max-height:90%;
+  border-radius:20px;
+}
+
+/* POPUP */
+.popup {
+  position:fixed;
+  width:100%;
+  height:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.4);
+  z-index:9999;
+}
+
+.popup-box {
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  width:300px;
+}
+
+/* CONTACT */
+.contact-buttons {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* FALLING FLOWERS */
+.emoji {
+  position:fixed;
+  top:-50px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall {
+  to { transform:translateY(110vh); }
 }
 
 /* FLOAT WHATSAPP */
@@ -201,10 +268,31 @@ section {
   padding: 15px;
   border-radius: 50%;
   text-decoration: none;
-  z-index: 1000;
+  z-index: 10000;
 }
 
-/* POPUP + IMAGE VIEW remain same */
+footer {
+  background:var(--rose);
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-grid {
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+  }
+  .square {
+    width:140px;
+    height:140px;
+  }
+  .square.offset {
+    margin-top:0;
+  }
+}
 </style>
 </head>
 
@@ -222,56 +310,103 @@ section {
 <a href="#contact">Order</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
+
 <div class="hero-grid">
-<img src="flower1.jpg" loading="lazy">
-<img src="flower2.jpg" loading="lazy">
-<img src="flower3.jpeg" loading="lazy">
-<img src="flower4.jpeg" loading="lazy">
+<div class="square"><img src="flower1.jpg"></div>
+<div class="square offset"><img src="flower2.jpg"></div>
+<div class="square"><img src="flower3.jpeg"></div>
+<div class="square offset"><img src="flower4.jpeg"></div>
+<div class="square"><img src="flower5.jpeg"></div>
+<div class="square offset"><img src="flower6.jpeg"></div>
+<div class="square"><img src="flower7.jpeg"></div>
+<div class="square offset"><img src="flower8.jpeg"></div>
+<div class="square"><img src="flower9.jpeg"></div>
+<div class="square offset"><img src="flower10.jpeg"></div>
+<div class="square"><img src="flower11.jpeg"></div>
+<div class="square offset"><img src="flower12.jpeg"></div>
 </div>
 
+<div class="hero-text">
 <div class="text-overlay">
 <h2>Beautiful Flowers for Every Special Moment</h2>
 <p>Fresh • Elegant • Made with Love</p>
-<button class="button" onclick="orderNow('General Order')">Order Now</button>
+<button class="button" onclick="openPopup('General Order')">Order Now</button>
 </div>
+</div>
+
 </section>
 
+<!-- ABOUT -->
+<section id="about">
+<h2>About Us</h2>
+<p>
+We create beautiful flower arrangements for every occasion. Fresh, artificial, custom bouquets made with love.
+</p>
+</section>
+
+<!-- SERVICES -->
 <section id="services">
 <h2>Our Bouquets 💐</h2>
 
 <div class="services">
 
 <div class="card">
-<img src="flower9.jpeg" loading="lazy">
+<img src="flower9.jpeg">
 <h3>Royal Bunch</h3>
-<p>LKR 4500</p>
-<button class="button" onclick="orderNow('Royal Bunch')">Order</button>
+<button class="button" onclick="openPopup('Royal Bunch')">Order</button>
 </div>
 
 <div class="card">
-<img src="flower5.jpeg" loading="lazy">
+<img src="flower5.jpeg">
 <h3>Sunshine Bunch</h3>
-<p>LKR 3500</p>
-<button class="button" onclick="orderNow('Sunshine Bunch')">Order</button>
+<button class="button" onclick="openPopup('Sunshine Bunch')">Order</button>
 </div>
 
 <div class="card">
-<img src="flower14.jpeg" loading="lazy">
+<img src="flower14.jpeg">
 <h3>Purity Bunch</h3>
-<p>LKR 4000</p>
-<button class="button" onclick="orderNow('Purity Bunch')">Order</button>
+<button class="button" onclick="openPopup('Purity Bunch')">Order</button>
 </div>
 
 </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery">
 <h2>Gallery 🌸</h2>
+
 <div class="gallery-scroll">
-<img src="flower1.jpg" loading="lazy">
-<img src="flower2.jpg" loading="lazy">
-<img src="flower3.jpeg" loading="lazy">
+<img src="flower1.jpg">
+<img src="flower2.jpg">
+<img src="flower3.jpeg">
+<img src="flower4.jpeg">
+<img src="flower5.jpeg">
+<img src="flower6.jpeg">
+<img src="flower7.jpeg">
+<img src="flower8.jpeg">
+<img src="flower9.jpeg">
+<img src="flower10.jpeg">
+<img src="flower11.jpeg">
+<img src="flower12.jpeg">
+<img src="flower13.jpeg">
+<img src="flower14.jpeg">
+<img src="flower15.jpg">
+<img src="flower16.jpeg">
+<img src="flower18.jpeg">
+<img src="flower19.jpeg">
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Order Now 🌷</h2>
+
+<div class="contact-buttons">
+<a href="https://wa.me/94717865534" class="button">WhatsApp</a>
+<a href="mailto:gloryfloraforyou@gmail.com" class="button">Gmail</a>
+<a href="https://instagram.com/roshi_flowers" class="button">Instagram</a>
 </div>
 </section>
 
@@ -279,43 +414,86 @@ section {
 © 2026 Roshi Flowers
 </footer>
 
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Order Details 🌸</h3>
+
+    <p id="selectedItem">Selected: None</p>
+
+    <input id="name" placeholder="Your Name">
+    <input id="date" type="date">
+    <textarea id="note" placeholder="Message"></textarea>
+
+    <a id="whatsappLink" class="button" target="_blank">Send on WhatsApp</a>
+
+    <br><br>
+    <button class="button" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<!-- IMAGE VIEW -->
+<div class="image-view" id="imageView" onclick="closeImage()">
+  <img id="fullImage">
+</div>
+
+<!-- FLOAT WHATSAPP -->
 <a href="https://wa.me/94717865534" class="whatsapp-float">💬</a>
 
 <script>
-function orderNow(product){
-  const message = `Hi! I'm interested in the ${product}. 🌸`;
-  const url = "https://wa.me/94717865534?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
+
+// POPUP FUNCTION (UPGRADED)
+function openPopup(product = "General Order"){
+  const popup = document.getElementById("popup");
+  const text = document.getElementById("selectedItem");
+  const link = document.getElementById("whatsappLink");
+
+  const name = document.getElementById("name").value;
+  const date = document.getElementById("date").value;
+  const note = document.getElementById("note").value;
+
+  const message =
+`🌸 Order Details:
+Product: ${product}
+Name: ${name || "Not added"}
+Date: ${date || "Not selected"}
+Note: ${note || "None"}`;
+
+  text.innerText = "Selected: " + product;
+
+  link.href = "https://wa.me/94717865534?text=" + encodeURIComponent(message);
+
+  popup.style.display = "flex";
 }
 
-/* IMPROVED FLOWERS */
-let emojiCount = 0;
-const maxEmojis = 25;
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
 
+// IMAGE VIEW
+function openImage(src){
+  document.getElementById("imageView").style.display = "flex";
+  document.getElementById("fullImage").src = src;
+}
+
+function closeImage(){
+  document.getElementById("imageView").style.display = "none";
+}
+
+// FALLING FLOWERS
 function spawnEmoji(){
-  if (emojiCount > maxEmojis) return;
-
   const emojis=["🌸","🌷","🌹","💐","🌺"];
   const el=document.createElement("div");
   el.className="emoji";
   el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-
   el.style.left=Math.random()*window.innerWidth+"px";
-  el.style.position="fixed";
-  el.style.top="-50px";
   el.style.fontSize=(Math.random()*20+20)+"px";
-  el.style.animation=`fall ${(Math.random()*3+4)}s linear`;
-
+  el.style.animationDuration=(Math.random()*3+4)+"s";
   document.body.appendChild(el);
-  emojiCount++;
-
-  setTimeout(()=>{
-    el.remove();
-    emojiCount--;
-  },7000);
+  setTimeout(()=>el.remove(),7000);
 }
+setInterval(spawnEmoji,500);
 
-setInterval(spawnEmoji,1200);
 </script>
 
 </body>
