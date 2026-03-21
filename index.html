@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roshi Flowers</title>
 
-<!-- FAVICON -->
+
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Ccircle cx="32" cy="32" r="20" fill="%23ff5fa2"/%3E%3Ctext x="32" y="40" font-size="22" text-anchor="middle"%3E🌸%3C/text%3E%3C/svg%3E'>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@ body {
   overflow-x:hidden;
 }
 
-/* HEADER */
+
 header {
   text-align:center;
   padding:50px;
@@ -35,7 +35,7 @@ header {
   color:white;
 }
 
-/* NAV */
+
 nav {
   display:flex;
   justify-content:center;
@@ -54,7 +54,7 @@ nav a {
   font-weight:bold;
 }
 
-/* HERO */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -93,7 +93,7 @@ nav a {
   margin-top: 90px;
 }
 
-/* TEXT CENTERING */
+
 .hero-text {
   position: relative;
   z-index: 1;
@@ -120,7 +120,7 @@ nav a {
   margin: 0 0 15px 0;
 }
 
-/* BUTTON */
+
 .button {
   background:var(--rose);
   color:white;
@@ -139,7 +139,7 @@ nav a {
   transform:scale(1.05);
 }
 
-/* SECTIONS */
+
 section {
   padding:70px 20px;
   text-align:center;
@@ -150,7 +150,7 @@ section p {
   margin:auto;
 }
 
-/* CARDS */
+
 .services {
   display:flex;
   justify-content:center;
@@ -179,7 +179,7 @@ section p {
   object-fit:cover;
 }
 
-/* GALLERY */
+
 .gallery-scroll {
   display:flex;
   gap:20px;
@@ -199,7 +199,7 @@ section p {
   box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* IMAGE VIEW */
+
 .image-view {
   position:fixed;
   top:0;
@@ -219,7 +219,7 @@ section p {
   border-radius:20px;
 }
 
-/* POPUP */
+
 .popup {
   position:fixed;
   width:100%;
@@ -239,14 +239,13 @@ section p {
   width:300px;
 }
 
-/* CONTACT */
+
 .contact-buttons {
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
 }
 
-/* FALLING FLOWERS */
 .emoji {
   position:fixed;
   top:-50px;
@@ -257,7 +256,7 @@ section p {
   to { transform:translateY(110vh); }
 }
 
-/* FLOAT WHATSAPP */
+
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -282,7 +281,6 @@ footer {
   flex-direction: column;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-grid {
     display:flex;
@@ -314,7 +312,7 @@ footer {
 <a href="#contact">Order</a>
 </nav>
 
-<!-- HERO -->
+
 <section class="hero">
 
 <div class="hero-grid">
@@ -342,7 +340,7 @@ footer {
 
 </section>
 
-<!-- ABOUT -->
+
 <section id="about">
 <h2>About Us</h2>
 <p>
@@ -354,7 +352,7 @@ Quality • Freshness • Love
 </p>
 </section>
 
-<!-- SERVICES -->
+
 <section id="services">
 <h2>Our Bouquets 💐</h2>
 
@@ -381,7 +379,7 @@ Quality • Freshness • Love
 </div>
 </section>
 
-<!-- GALLERY -->
+
 <section id="gallery">
 <h2>Gallery 🌸</h2>
 
@@ -407,7 +405,7 @@ Quality • Freshness • Love
 </div>
 </section>
 
-<!-- CONTACT -->
+
 <section id="contact">
 <h2>Order Now 🌷</h2>
 
@@ -422,7 +420,7 @@ Quality • Freshness • Love
   © 2026 Roshi Flowers
 </footer>
   
-<!-- POPUP -->
+
 <div class="popup" id="popup">
   <div class="popup-box">
     <h3>Order Details 🌸</h3>
@@ -440,12 +438,12 @@ Quality • Freshness • Love
   </div>
 </div>
 
-<!-- IMAGE VIEW -->
+
 <div class="image-view" id="imageView" onclick="closeImage()">
   <img id="fullImage">
 </div>
 
-<!-- FLOAT WHATSAPP -->
+
 <a href="https://wa.me/94717865534" class="whatsapp-float">💬</a>
 
 <script>
@@ -472,7 +470,7 @@ function closePopup(){
   document.getElementById("popup").style.display = "none";
 }
 
-// IMAGE VIEW
+
 function openImage(src){
   document.getElementById("imageView").style.display = "flex";
   document.getElementById("fullImage").src = src;
@@ -482,7 +480,7 @@ function closeImage(){
   document.getElementById("imageView").style.display = "none";
 }
 
-// FALLING FLOWERS
+
 function spawnEmoji(){
   const emojis=["🌸","🌷","🌹","💐","🌺"];
   const el=document.createElement("div");
