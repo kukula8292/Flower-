@@ -125,6 +125,9 @@
       display:flex;
       gap:8px;
       z-index:10;
+      flex-wrap:wrap;
+      justify-content:center;
+      max-width:90%;
     }
 
     .gallery-dot{
@@ -288,17 +291,17 @@
 
       <aside class="hero-right" aria-hidden>
         <div class="card-grid">
-          <div class="card" title="Sweet Peony">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Peony bouquet">
+          <div class="card" title="Arrangement 1">
+            <img loading="lazy" src="flower1.jpg" alt="Flower arrangement 1">
           </div>
-          <div class="card" title="Classic Roses">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Roses bouquet">
+          <div class="card" title="Arrangement 2">
+            <img loading="lazy" src="flower2.jpg" alt="Flower arrangement 2">
           </div>
-          <div class="card" title="Wild Arrangement">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Wild flowers">
+          <div class="card" title="Arrangement 3">
+            <img loading="lazy" src="flower3.jpeg" alt="Flower arrangement 3">
           </div>
-          <div class="card" title="Elegant Minimalist">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1505577058444-a3dab1b1a17b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Minimal bouquet">
+          <div class="card" title="Arrangement 4">
+            <img loading="lazy" src="flower4.jpeg" alt="Flower arrangement 4">
           </div>
         </div>
         <div style="width:100%; margin-top:12px; display:flex; gap:10px;">
@@ -341,8 +344,8 @@
         
         <div class="gallery-container">
           <div class="gallery-slide" id="gallerySlide">
-            <div class="gallery-title" id="galleryTitle">Elegant Roses</div>
-            <img id="galleryImg" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Gallery image" onclick="openLightbox(this.src)">
+            <div class="gallery-title" id="galleryTitle">Flower Arrangement 1</div>
+            <img id="galleryImg" src="flower1.jpg" alt="Gallery image" onclick="openLightbox(this.src)">
           </div>
 
           <button class="gallery-btn gallery-btn-prev" onclick="prevSlide()" aria-label="Previous image">❮</button>
@@ -354,6 +357,20 @@
             <div class="gallery-dot" onclick="goToSlide(2)" role="listitem" aria-label="Slide 3"></div>
             <div class="gallery-dot" onclick="goToSlide(3)" role="listitem" aria-label="Slide 4"></div>
             <div class="gallery-dot" onclick="goToSlide(4)" role="listitem" aria-label="Slide 5"></div>
+            <div class="gallery-dot" onclick="goToSlide(5)" role="listitem" aria-label="Slide 6"></div>
+            <div class="gallery-dot" onclick="goToSlide(6)" role="listitem" aria-label="Slide 7"></div>
+            <div class="gallery-dot" onclick="goToSlide(7)" role="listitem" aria-label="Slide 8"></div>
+            <div class="gallery-dot" onclick="goToSlide(8)" role="listitem" aria-label="Slide 9"></div>
+            <div class="gallery-dot" onclick="goToSlide(9)" role="listitem" aria-label="Slide 10"></div>
+            <div class="gallery-dot" onclick="goToSlide(10)" role="listitem" aria-label="Slide 11"></div>
+            <div class="gallery-dot" onclick="goToSlide(11)" role="listitem" aria-label="Slide 12"></div>
+            <div class="gallery-dot" onclick="goToSlide(12)" role="listitem" aria-label="Slide 13"></div>
+            <div class="gallery-dot" onclick="goToSlide(13)" role="listitem" aria-label="Slide 14"></div>
+            <div class="gallery-dot" onclick="goToSlide(14)" role="listitem" aria-label="Slide 15"></div>
+            <div class="gallery-dot" onclick="goToSlide(15)" role="listitem" aria-label="Slide 16"></div>
+            <div class="gallery-dot" onclick="goToSlide(16)" role="listitem" aria-label="Slide 17"></div>
+            <div class="gallery-dot" onclick="goToSlide(17)" role="listitem" aria-label="Slide 18"></div>
+            <div class="gallery-dot" onclick="goToSlide(18)" role="listitem" aria-label="Slide 19"></div>
           </div>
         </div>
       </div>
@@ -422,13 +439,27 @@
   </div>
 
   <script>
-    // Gallery data
+    // Gallery data using YOUR images from the repo
     const galleryData = [
-      { image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Elegant Roses' },
-      { image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Vibrant Mix' },
-      { image: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Sweet Peonies' },
-      { image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Wild Garden' },
-      { image: 'https://images.unsplash.com/photo-1505577058444-a3dab1b1a17b?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Minimalist Elegance' }
+      { image: 'flower1.jpg', title: 'Flower Arrangement 1' },
+      { image: 'flower2.jpg', title: 'Flower Arrangement 2' },
+      { image: 'flower3.jpeg', title: 'Flower Arrangement 3' },
+      { image: 'flower4.jpeg', title: 'Flower Arrangement 4' },
+      { image: 'flower5.jpeg', title: 'Flower Arrangement 5' },
+      { image: 'flower6.jpeg', title: 'Flower Arrangement 6' },
+      { image: 'flower7.jpeg', title: 'Flower Arrangement 7' },
+      { image: 'flower8.jpeg', title: 'Flower Arrangement 8' },
+      { image: 'flower9.jpeg', title: 'Flower Arrangement 9' },
+      { image: 'flower10.jpeg', title: 'Flower Arrangement 10' },
+      { image: 'flower11.jpeg', title: 'Flower Arrangement 11' },
+      { image: 'flower12.jpeg', title: 'Flower Arrangement 12' },
+      { image: 'flower13.jpeg', title: 'Flower Arrangement 13' },
+      { image: 'flower14.jpeg', title: 'Flower Arrangement 14' },
+      { image: 'flower15.jpg', title: 'Flower Arrangement 15' },
+      { image: 'flower16.jpeg', title: 'Flower Arrangement 16' },
+      { image: 'flower17.jpeg', title: 'Flower Arrangement 17' },
+      { image: 'flower18.jpeg', title: 'Flower Arrangement 18' },
+      { image: 'flower19.jpeg', title: 'Flower Arrangement 19' }
     ];
 
     let currentSlide = 0;
@@ -458,8 +489,8 @@
       updateGallery();
     }
 
-    // Auto-advance gallery every 6 seconds
-    setInterval(nextSlide, 6000);
+    // Auto-advance gallery every 5 seconds
+    setInterval(nextSlide, 5000);
 
     // Year and other helpers
     document.getElementById('year').textContent = new Date().getFullYear();
