@@ -58,12 +58,12 @@
       box-shadow:var(--soft-shadow);
     }
     .brand{display:flex; gap:12px; align-items:center}
-    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(180deg,var(--primary),#a23a5a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:Playfair Display}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(180deg,var(--primary),#a23a5a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;}
     nav .links{margin-left:auto; display:flex; gap:18px; align-items:center}
     nav .links a{font-weight:600; padding:8px 12px; border-radius:10px; transition:all var(--fast) ease}
     nav .links a:hover{background:var(--accent); transform:translateY(-3px)}
     .nav-actions{display:flex;gap:10px; align-items:center}
-    .btn{background:var(--primary); color:white; padding:10px 16px;border-radius:10px; border:none; font-weight:600; cursor:pointer; box-shadow:0 6px 18px rgba(122,42,73,0.14); transition:transform var(--fast) ease, box-shadow var(--fast)}
+    .btn{background:var(--primary); color:white; padding:10px 16px;border-radius:10px; border:none; font-weight:600; cursor:pointer; box-shadow:0 6px 18px rgba(122,42,73,0.14); transition:transform var(--fast) ease}
     .btn:hover{transform:translateY(-3px)}
 
     /* Hero */
@@ -73,12 +73,12 @@
     .lead{color:var(--muted); font-size:1.05rem; margin-bottom:22px}
 
     .hero-ctas{display:flex; gap:12px; align-items:center}
-    .secondary{background:transparent; border:2px solid var(--primary); color:var(--primary); padding:10px 16px; border-radius:10px; font-weight:600}
+    .secondary{background:transparent; border:2px solid var(--primary); color:var(--primary); padding:10px 16px; border-radius:10px; font-weight:600; cursor:pointer}
 
     /* Gallery cards (right) */
     .hero-right{display:flex; flex-direction:column; gap:12px; align-items:center}
     .card-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-    .card{width:100%; border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(18,18,18,0.06); background:linear-gradient(180deg,#fff,#fff); transform:translateY(0); transition:transform var(--medium) ease, box-shadow var(--medium)}
+    .card{width:100%; border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(18,18,18,0.06); background:linear-gradient(180deg,#fff,#fff); transform:translateY(0); transition:transform var(--fast) ease}
     .card img{width:100%; height:150px; object-fit:cover; display:block}
     .card:hover{transform:translateY(-8px); box-shadow:0 20px 60px rgba(122,42,73,0.12)}
 
@@ -89,10 +89,99 @@
     .feature{background:var(--surface); padding:20px; border-radius:12px; width:calc(33% - 30px); min-width:240px; box-shadow:0 12px 30px rgba(18,18,18,0.06)}
     .feature h3{margin:8px 0; color:var(--primary); font-family:Playfair Display}
 
-    /* Gallery */
-    .gallery{display:flex; gap:14px; overflow:auto; padding:12px; scroll-snap-type:x mandatory}
-    .gallery img{height:260px; border-radius:12px; object-fit:cover; scroll-snap-align:center; box-shadow:0 8px 30px rgba(18,18,18,0.08); transition:transform var(--fast) ease}
-    .gallery img:hover{transform:translateY(-8px) scale(1.02)}
+    /* Gallery Carousel */
+    .gallery-container{
+      position:relative;
+      max-width:1000px;
+      margin:0 auto;
+      overflow:hidden;
+      border-radius:16px;
+      box-shadow:0 20px 60px rgba(122,42,73,0.15);
+    }
+
+    .gallery-slide{
+      position:relative;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f0f0f0;
+      overflow:hidden;
+    }
+
+    .gallery-slide img{
+      width:100%;
+      height:500px;
+      object-fit:cover;
+      display:block;
+      animation:fadeIn var(--slow) ease;
+    }
+
+    .gallery-controls{
+      position:absolute;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:8px;
+      z-index:10;
+    }
+
+    .gallery-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.5);
+      cursor:pointer;
+      transition:all var(--fast) ease;
+      border:2px solid transparent;
+    }
+
+    .gallery-dot.active{
+      background:white;
+      transform:scale(1.2);
+    }
+
+    .gallery-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(122,42,73,0.8);
+      color:white;
+      border:none;
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:all var(--fast) ease;
+      z-index:5;
+    }
+
+    .gallery-btn:hover{
+      background:rgba(122,42,73,1);
+      transform:translateY(-50%) scale(1.1);
+    }
+
+    .gallery-btn-prev{left:20px}
+    .gallery-btn-next{right:20px}
+
+    .gallery-title{
+      position:absolute;
+      top:20px;
+      left:20px;
+      background:rgba(255,255,255,0.95);
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--primary);
+      font-family:Playfair Display;
+      font-size:18px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
 
     /* Testimonials & Pricing */
     .split-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px}
@@ -117,8 +206,9 @@
     @media (max-width:520px){
       h1{font-size:2.2rem}
       .card img{height:120px}
-      .gallery img{height:180px}
+      .gallery-slide img{height:300px}
       .feature{width:100%}
+      .gallery-btn{width:40px; height:40px; font-size:16px}
     }
 
     /* Micro animations */
@@ -129,8 +219,9 @@
     .flourish{width:100%; height:120px; background:linear-gradient(180deg, rgba(250,240,243,0.7), transparent); position:relative; border-bottom-left-radius:60% 40px; border-bottom-right-radius:60% 40px}
 
     /* Lightbox */
-    .lightbox{position:fixed; inset:0; display:none; background:rgba(10,10,10,0.7); align-items:center; justify-content:center; z-index:9999}
+    .lightbox{position:fixed; inset:0; display:none; background:rgba(10,10,10,0.9); align-items:center; justify-content:center; z-index:9999}
     .lightbox img{max-width:90%; max-height:85%; border-radius:12px}
+    .lightbox-close{position:absolute; top:20px; right:20px; background:white; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center}
 
   </style>
 </head>
@@ -198,20 +289,20 @@
       <aside class="hero-right" aria-hidden>
         <div class="card-grid">
           <div class="card" title="Sweet Peony">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Peony bouquet">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Peony bouquet">
           </div>
           <div class="card" title="Classic Roses">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Roses bouquet">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Roses bouquet">
           </div>
           <div class="card" title="Wild Arrangement">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Wild flowers">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Wild flowers">
           </div>
           <div class="card" title="Elegant Minimalist">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1505577058444-a3dab1b1a17b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Minimal bouquet">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1505577058444-a3dab1b1a17b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Minimal bouquet">
           </div>
         </div>
         <div style="width:100%; margin-top:12px; display:flex; gap:10px;">
-          <div class="card" style="flex:1; display:flex; align-items:center; justify-content:center; padding:18px"><div style="text-align:center"><strong style="color:var(--primary)">Custom Orders</strong><div class="muted" style="font-size:13px">Tell us your vision</div></div></div>
+          <div class="card" style="flex:1; display:flex; align-items:center; justify-content:center; padding:18px"><div style="text-align:center"><strong style="color:var(--primary)">Custom Orders</strong></div></div>
           <div class="card" style="width:120px; display:grid; place-items:center"><div style="font-weight:700; color:var(--primary)">Gift & Wrap</div></div>
         </div>
       </aside>
@@ -226,17 +317,17 @@
 
         <div class="features" style="margin-top:20px">
           <div class="feature">
-            <div style="font-size:22px">Bespoke Bouquets</div>
+            <div style="font-size:22px">🎨</div>
             <h3>Personalised designs</h3>
             <div class="muted">Hand-tied arrangements tailored to your preferences.</div>
           </div>
           <div class="feature">
-            <div style="font-size:22px">Event Styling</div>
+            <div style="font-size:22px">💐</div>
             <h3>Weddings & Events</h3>
             <div class="muted">Full-service floral design & on-site setup.</div>
           </div>
           <div class="feature">
-            <div style="font-size:22px">Subscription</div>
+            <div style="font-size:22px">🌿</div>
             <h3>Weekly / Monthly</h3>
             <div class="muted">Fresh seasonal selections delivered regularly.</div>
           </div>
@@ -246,12 +337,24 @@
 
     <section id="gallery" class="fade-in">
       <div class="section-inner">
-        <h2 style="font-family:Playfair Display;color:var(--primary)">Gallery</h2>
-        <div class="gallery" role="list" aria-label="Gallery of arrangements" tabindex="0">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Arrangement 1" loading="lazy" onclick="openLightbox(this.src)"/>
-          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Arrangement 2" loading="lazy" onclick="openLightbox(this.src)"/>
-          <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Arrangement 3" loading="lazy" onclick="openLightbox(this.src)"/>
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Arrangement 4" loading="lazy" onclick="openLightbox(this.src)"/>
+        <h2 style="font-family:Playfair Display;color:var(--primary); margin-bottom:30px;">Gallery</h2>
+        
+        <div class="gallery-container">
+          <div class="gallery-slide" id="gallerySlide">
+            <div class="gallery-title" id="galleryTitle">Elegant Roses</div>
+            <img id="galleryImg" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Gallery image" onclick="openLightbox(this.src)">
+          </div>
+
+          <button class="gallery-btn gallery-btn-prev" onclick="prevSlide()" aria-label="Previous image">❮</button>
+          <button class="gallery-btn gallery-btn-next" onclick="nextSlide()" aria-label="Next image">❯</button>
+
+          <div class="gallery-controls" role="list" aria-label="Gallery slides">
+            <div class="gallery-dot active" onclick="goToSlide(0)" role="listitem" aria-label="Slide 1"></div>
+            <div class="gallery-dot" onclick="goToSlide(1)" role="listitem" aria-label="Slide 2"></div>
+            <div class="gallery-dot" onclick="goToSlide(2)" role="listitem" aria-label="Slide 3"></div>
+            <div class="gallery-dot" onclick="goToSlide(3)" role="listitem" aria-label="Slide 4"></div>
+            <div class="gallery-dot" onclick="goToSlide(4)" role="listitem" aria-label="Slide 5"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -280,7 +383,7 @@
     <section id="contact" class="fade-in">
       <div class="section-inner" style="max-width:820px">
         <h2 style="font-family:Playfair Display;color:var(--primary)">Get in touch</h2>
-        <p class="muted">Custom requests, events or same-day delivery — we’re here to help.</p>
+        <p class="muted">Custom requests, events or same-day delivery — we're here to help.</p>
 
         <form style="margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:12px" onsubmit="submitForm(event)">
           <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid #eee"/>
@@ -313,17 +416,66 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" onclick="closeLightbox()"><img id="lightboxImg" alt="Enlarged image"></div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" alt="Enlarged image">
+  </div>
 
   <script>
-    // small helpers
+    // Gallery data
+    const galleryData = [
+      { image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Elegant Roses' },
+      { image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Vibrant Mix' },
+      { image: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Sweet Peonies' },
+      { image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Wild Garden' },
+      { image: 'https://images.unsplash.com/photo-1505577058444-a3dab1b1a17b?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3', title: 'Minimalist Elegance' }
+    ];
+
+    let currentSlide = 0;
+
+    function updateGallery(){
+      const data = galleryData[currentSlide];
+      document.getElementById('galleryImg').src = data.image;
+      document.getElementById('galleryTitle').textContent = data.title;
+      
+      document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function nextSlide(){
+      currentSlide = (currentSlide + 1) % galleryData.length;
+      updateGallery();
+    }
+
+    function prevSlide(){
+      currentSlide = (currentSlide - 1 + galleryData.length) % galleryData.length;
+      updateGallery();
+    }
+
+    function goToSlide(index){
+      currentSlide = index;
+      updateGallery();
+    }
+
+    // Auto-advance gallery every 6 seconds
+    setInterval(nextSlide, 6000);
+
+    // Year and other helpers
     document.getElementById('year').textContent = new Date().getFullYear();
 
     function openLightbox(src){
       const lb = document.getElementById('lightbox');
-      document.getElementById('lightboxImg').src = src; lb.style.display='flex'; lb.setAttribute('aria-hidden','false');
+      document.getElementById('lightboxImg').src = src; 
+      lb.style.display='flex'; 
+      lb.setAttribute('aria-hidden','false');
     }
-    function closeLightbox(){ const lb=document.getElementById('lightbox'); lb.style.display='none'; lb.setAttribute('aria-hidden','true'); }
+    
+    function closeLightbox(){ 
+      const lb=document.getElementById('lightbox'); 
+      lb.style.display='none'; 
+      lb.setAttribute('aria-hidden','true'); 
+    }
 
     function openWhatsApp(){
       const number='+94717865534';
@@ -334,13 +486,20 @@
     function submitForm(e){
       e.preventDefault();
       const form = e.target;
-      // simple feedback (replace with real backend integration)
       form.querySelector('button[type="submit"]').textContent='Sending...';
-      setTimeout(()=>{ alert('Thank you — we received your inquiry. We will reach out shortly.'); form.reset(); form.querySelector('button[type="submit"]').textContent='Send inquiry'; }, 900);
+      setTimeout(()=>{ 
+        alert('Thank you — we received your inquiry. We will reach out shortly.'); 
+        form.reset(); 
+        form.querySelector('button[type="submit"]').textContent='Send inquiry'; 
+      }, 900);
     }
 
-    // small performance: lazy restore reduced-motion if user toggles
-    (function(){ if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduced-motion'); })();
+    // Keyboard navigation for gallery
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowLeft') prevSlide();
+      if(e.key === 'ArrowRight') nextSlide();
+      if(e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
